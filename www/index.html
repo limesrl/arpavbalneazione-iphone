@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Arpav Balneazione</title>
+		<meta charset="ISO-8859-1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="include/css/main.1.0.1.css" />
+
+		<script src="include/lib/jquery-1.7.1.min.js"></script>
+		<script src="include/js/common.js"></script>
+		
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script src="include/lib/infobox-1.1.9.js"></script>
+		
+		<script src="include/lib/cordova-2.3.0.js"></script>
+		<script src="include/js/mustache.js"></script>
+		<script src="include/js/html5sql.js"></script>
+		<script src="include/js/jquery.touchSwipe.js"></script>
+		<script src="include/js/android_def.js"></script>
+		<script src="include/js/main.js"></script>
+	</head>
+	<body>
+	
+		<!-- Splash Page COMMENTARE QUESTO BLOCCO SU IOS
+		<div id="page_splash" class="page">
+			<div class="splash">
+				<img src="include/images/splashscreen@320x440_2.png" alt="splash" id="splashimg"/>
+			</div>
+		</div> -->
+        <!-- PAGINA LOADING -->
+        <div id="page_splash" class="page">
+            <div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<!--<a href="#" class="bottonileft" id="btn_corpi_fav">Preferiti</a>-->
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;text-align:center;">
+                <div style="width:100%;/*border:1px solid black;*/position:relative;height:123px;background-color:#e3e7f2;">
+					<div style="position:absolute;left:0;"><img src="include/images/text_bg_left.png" /></div>
+					<div class="textbox_c" style="position:absolute;left:70px;">
+                        <br/>
+                        <br/>
+                        <div style="display:inline;line-height:16px;">
+                            <div style="display:inline;line-height:16px;">Caricamento luoghi</div>
+                            <img src="include/icons/loading.gif" style="margin-bottom:-5px;"/>
+                        </div>
+                    </div>
+					<div style="position:absolute;right:0;"><img src="include/images/text_bg_right.png" /></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- PAGINA CORPI -->	
+		<div id="geo_corpi" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="btn_corpi_fav">Preferiti</a>
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;">
+				<!--<div class="textbox">
+					Seleziona l'area
+					per vedere<br /> gli aggiornamenti sullo<br />
+					stato della balneabilit&agrave; oppure<br />
+					utilizza la funzione <span>Preferiti</span> per <br />
+					creare una tua lista.
+				</div>-->
+				<div style="width:100%;/*border:1px solid black;*/position:relative;height:123px;background-color:#e3e7f2;">
+					<div style="position:absolute;left:0;"><img src="include/images/text_bg_left.png" /></div>
+					<div class="textbox_c" style="position:absolute;left:70px;">
+					Seleziona l'area
+					per vedere<br /> gli aggiornamenti sullo<br />
+					stato della balneabilit&agrave; oppure<br />
+					utilizza la funzione <span>Preferiti</span> per <br />
+					creare una tua lista.
+					</div>
+					<div style="position:absolute;right:0;"><img src="include/images/text_bg_right.png" /></div>
+				</div>
+				<div class="content-primary" style="padding: 5px;">
+					<ul id="list_corpi" class="listview"></ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- PAGINA COMUNI -->	
+		<div id="geo_comuni" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" onclick="changeMypage('geo_corpi');">Torna</a>
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;">
+				<h5 id="nomecorpo"></h5>
+				<div class="content-primary" style="padding: 5px;">
+					<ul class="listview" id="list_comuni"></ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- PAGINA LUOGHI -->	
+		<div id="geo_luoghi" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="btn_geo_luoghi_torna">Torna</a>
+					<a href="#" class="bottoniright" id="bindPlacesToMap">Mappa</a>
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;">
+				<h5 id="nomeluogo"></h5>
+				<div class="content-primary" style="padding: 5px;">
+					<ul class="listview" id="list_luoghi"></ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- PAGINA LUOGO DETTAGLIO -->	
+		<div id="geo_luoghi_dettaglio" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="btn_geo_luoghi_dettaglio">Torna</a>
+					<a href="#" class="bottoniright" id="bindPlacesToMap_det">Mappa</a>
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;">
+				<div class="content-primary" style="padding:0 5px;">
+					<div id="detailLuogo"></div>
+				</div>
+			</div>
+			<div class="footer" style="padding:15px 8px 0 5px;">
+				<a href="#" class="bottonileft" onclick="hideSplash();return false;">Home</a>
+			</div>
+		</div>
+		
+		<!-- PAGINA0 SWIPE -->	
+		<div id="geo_luoghi_dettaglio_fav" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="bindPreferiti">Preferiti</a>
+					
+					<a href="#" class="bottoniright" id="bindPlaceToMap">Mappa</a>
+					<img src="include/icons/loading.gif" id="loader" style="float:right;display:none;width:20px;height:20px;margin:5px 5px 0 0;" />
+				</div>
+			</div>
+			<div class="content" id="swipeItems"></div>
+			<div class="footer">
+				<ul class="swipeicons"></ul>
+			</div>
+		</div>
+		
+		<!-- PAGINA MAPPA LUOGO -->	
+		<div id="mappa_luogo" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="btn_mappa_luogo_torna">Torna</a>
+				</div>
+			</div>
+			<div class="content">
+				<div id="map_luogo_fav" style="width:100%;height:370px;margin-top:91px;"></div>
+			</div>
+		</div>
+		
+		<!-- PAGINA MAPPA LUOGHI -->
+		<div id="mappa_luoghi" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" id="btn_mappa_luoghi_torna">Torna</a>
+				</div>
+			</div>
+			<div class="content">
+				<div id="map_luoghiall" style="width:100%; height:370px;margin-top:91px;"></div>
+			</div>
+		</div>
+		
+		<!-- LISTA GESTIONE PREFERITI -->	
+		<div id="preferiti_page" class="page">
+			<div class="header">
+				<div class="head_banner"></div>
+				<div class="ns_header">
+					<a href="#" class="bottonileft" onclick="hideSplash();return false;">Home</a>
+					<a href="#" class="bottoniright" id="btn_preferiti_new">Nuovo</a>
+				</div>
+			</div>
+			<div class="content" style="margin-top:91px;">
+				<!--<div class="textbox">
+					Aggiungi le localit&agrave;	all'elenco<br />
+					dei tuoi preferiti utilizzando<br />
+					il tasto <span>Nuovo</span>	in alto a destra.<br />
+					Per rimuovere tocca una localit&agrave;.
+				</div>-->
+                <div style="width:100%;/*border:1px solid black;*/position:relative;height:123px;background-color:#e3e7f2;">
+					<div style="position:absolute;left:0;"><img src="include/images/text_bg_left.png" /></div>
+					<div class="textbox_c" style="position:absolute;left:70px;">
+                        Aggiungi le localit&agrave;	all'elenco<br />
+                        dei tuoi preferiti utilizzando<br />
+                        il tasto <span>Nuovo</span>	in alto a destra.<br />
+                        Per rimuovere tocca una localit&agrave;.
+					</div>
+					<div style="position:absolute;right:0;"><img src="include/images/text_bg_right.png" /></div>
+				</div>
+				<div class="content-primary">
+					<h5 id="emptymsg" class="error_msg"></h5>
+					<ul id="list_preferiti" class="listview" style="margin: 5px;"></ul>
+				</div>
+			</div>
+		</div>
+		<div style="display:none;" id="renderPMaps"></div>
+	</body>
+</html>

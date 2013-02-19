@@ -1,0 +1,37 @@
+body{margin:0;padding:0;font-family: Helvetica,Arial,sans-serif;}
+.nosee{display:none;}
+.page{margin:0;padding:0;}
+.head_banner{background: url(http://www.arpa.veneto.it/app/images/banner_app_balneazione.png?nocache=true) no-repeat #ffffff; height:34px; }
+.ns_header { height:30px; width:100%; padding:17px 6px 10px;}
+.textbox{background: url(../images/text_bg.png) no-repeat;/*width:100%;*/height:95px;padding:25px 70px 0;font-size:12px;color: #333;}
+.textbox span {color:#459b8e;font-weight:bold;}
+.textbox_c{height:95px;padding-top:25px;font-size:12px;color: #333;}
+.textbox_c span {color:#459b8e;font-weight:bold;}
+.box-content-container{background:rgba(125, 125, 125,0.2);border-bottom-left-radius: 0.3em;border-bottom-right-radius: 0.3em;border-top-left-radius: 0.3em;border-top-right-radius: 0.3em;border: 1px solid #cccccc;}
+.box-content{padding:10px;min-height:110px !important;}
+ul.swipeicons {text-align:center;position:relative;}
+.swipeicons li{text-indent:-2000px; list-style-type:none;margin:0 0 10px 3px; float:left;width:21px;height:21px;background: url(../icons/bullet_b.png) no-repeat top left;}
+.swipeicons li.selected{background: url(../icons/bullet_w.png) no-repeat top left;}
+.swipe_item{position:absolute;top:100px;width:90%;margin:0 5%;padding:5px;}
+#swipeItems{width: 100%;display: block;height: 100%;position: absolute;background: url(../icons/arrows2.png) 50% 78% no-repeat;}
+.content h5{	margin:5px 0 0 0;padding:8px 0 0 8px;color:#017862;}
+h5.error_msg{color:#ff0000;font-weight:bold;margin: 5px 10px;font-size:14px;}
+.ui-li-desc {font-size: 12px;font-weight: normal;display: block;margin: -.5em 0 .6em;text-overflow: ellipsis;overflow: hidden;/*white-space: nowrap;*/}
+ul.listview {margin: 5px 0 0 0;-webkit-margin-before: 0px;-webkit-margin-after: 0px;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-webkit-padding-start: 0px;}
+.listview li.first {border-top-left-radius: .6em;border-top-right-radius: .6em;}
+.listview li.last {border-bottom-left-radius: .6em;border-bottom-right-radius: .6em;}
+.listview li {text-shadow: 0 1px 0 #017862;/*cursor: pointer;*/border: 1px solid #cccccc;font-weight: bold;	color: #2F3E46;list-style: none;/*padding: 12px 15px 5px 5px;*/background: url(../icons/freccia_dx.png) no-repeat 99% 50% #459b8e;}
+.listview li.elimina {background: url(../icons/divieto.png) no-repeat 99% 50% #459b8e;}
+.listview h3 {margin: .6em 0;color: #fff;padding:8px;}
+h3.flag_BLU{	background: url(../icons/bandiera_BLU.png) no-repeat 1% 50%;padding: 8px 8px 8px 30px;
+font-size: 1em;}
+h3.flag_ROSSA{background: url(../icons/bandiera_ROSSA.png) no-repeat 1% 50%;	padding: 8px 8px 8px 30px;	font-size: 1em;}
+h3.flag_ARANCIO{	background: url(../icons/bandiera_ARANCIO.png) no-repeat 1% 50%;padding: 8px 8px 8px 30px;	font-size: 1em;}
+.listview a {text-decoration: none;color: #fff;margin: .6em 0;font-size: 0.7em;}
+.listview a span{margin: -3px 5px;padding: 8px;position: absolute;}
+.header {top: 0;	left: 0;right: 0;width: 100%;position: fixed;z-index: 1000;	border: 0;/*1px solid #B3B3B3;*/background: #017862;color: #fff;font-weight: bold;text-shadow: 0 1px 1px #333;/*height:45px;*/}
+.footer{position:fixed;bottom:0;left: 0;right: 0;width: 100%;z-index: 1000;background: #017862;color: #fff;font-weight: bold;text-shadow: 0 1px 1px #333;height:45px;}
+.bottonileft{float:left;border: 1px solid #01483B;border-radius: 0.4em;background: #4C9F8F;	font-weight: bold;	color: #fff;text-shadow: 0 1px 0 #333;font-family: Helvetica,Arial,sans-serif;text-decoration: none;	-webkit-background-clip: padding-box;background-clip: padding-box;text-align: center;cursor: pointer;	font-size: 12.5px;padding: .55em 12px .5em;}
+.bottoniright{float:right;border: 1px solid #01483B;border-radius: 0.4em;background: #4C9F8F;font-weight: bold;	color: #fff;text-shadow: 0 1px 0 #333;font-family: Helvetica,Arial,sans-serif;text-decoration: none;-webkit-background-clip: padding-box;background-clip: padding-box;text-align: center;cursor: pointer;font-size: 12.5px;padding: .55em 12px .5em;margin-right:13px;}
+.popupMap{padding: 8px;	border-radius: 4px;	border: 1px solid rgb(204, 204, 204);width: 158px;height: 84px;border-width: 1px;border-color: rgb(204, 204, 204);border-style: solid;}
+.popupMap p{font-size:0.8em;}
